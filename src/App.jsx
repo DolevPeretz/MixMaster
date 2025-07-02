@@ -8,15 +8,17 @@ import {
 } from "./pages";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
+import { loader as landingLoader } from "./pages/Landing.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
         element: <Landing />,
+        loader: landingLoader,
       },
       {
         path: "cocktail",
