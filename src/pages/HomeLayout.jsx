@@ -1,12 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function HomeLayout() {
+  const navigat = useNavigate();
+  const isLpading = navigat.state === "loading";
   return (
     <>
       <Navbar />
       <section className="page">
-        <Outlet />
+        {isLpading ? <div className="loading" /> : <Outlet />}
       </section>
     </>
   );
